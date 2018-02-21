@@ -1,0 +1,8 @@
+$prefixes: -webkit-, -moz-, -ms-, -o-, '';
+
+@mixin flexbox {
+  @each $prefix in $prefixes {
+    display: #{$prefix}flex;
+//flexboxとはざっくりというと「サイズの異なる要素を、柔軟かつ簡単に綺麗に並べてくれるCSS3の機能
+  }
+}
