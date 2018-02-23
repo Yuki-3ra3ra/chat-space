@@ -19,38 +19,7 @@
         .right-header__button
           Edit
     .messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__user-date
-        .lower-message
-          .lower-message__content
-            メッセージ
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__user-date
-        .lower-message
-          .lower-message__content
-            メッセージ
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__user-date
-        .lower-message
-          .lower-message__content
-            メッセージ
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__user-date
-        .lower-message
-          .lower-message__content
-            メッセージ
+      = render @messages
 
     .form
       = form_for [@group, @message] do |f|
