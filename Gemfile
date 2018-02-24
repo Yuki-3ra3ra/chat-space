@@ -39,6 +39,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
+  gem "pry-rails"
 end
 
 group :development do
@@ -57,7 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'erb2haml'
   gem "font-awesome-rails"
   gem "devise"
-  gem "pry-rails"
   gem 'carrierwave'
   gem 'mini_magick'
 
