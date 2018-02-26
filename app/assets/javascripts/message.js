@@ -17,7 +17,7 @@ $(function(){
                     <img src = "${message.image}" class = "lower-message__image" width = "250" height = "150">
                   </div>
                 </div>`
-  } else if (message.content)
+  } else if (message.content){
     var html = `<div class = "message">
                   <div class = "upper-message">
                     <div class = "upper-message__user-name">
@@ -33,7 +33,7 @@ $(function(){
                     </p>
                   </div>
                 </div>`
-  } else if (message.image)
+  } else if (message.image){
     var html = `<div class = "message">
                   <div class = "upper-message">
                     <div class = "upper-message__user-name">
@@ -66,6 +66,7 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
+      $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight},500);
     })
     .fail(function() {
      alert('エラーのためメッセージの送信ができませんでした。');
