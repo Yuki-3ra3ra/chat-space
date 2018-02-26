@@ -1,53 +1,26 @@
 $(function(){
   function buildHTML(message){
-  if (message.content && message.image.url) {
+    if(message.image){
+      image = `<img src=${message.image} width="250" height="150">`;
+      }else{
+       image = "";
+    }
     var html = `<div class = "message">
-                  <div class = "upper-message">
-                    <div class = "upper-message__user-name">
-                        ${message.user_name}
-                    </div>
-                    <div class = "upper-message__date">
-                      ${message.created_at}
-                    </div>
+                 <div class = "upper-message">
+                  <div class = "upper-message__user-name">
+                    ${message.user_name}
                   </div>
-                  <div class ="lower-message">
-                    <p class="lower-message__content">
-                        ${message.content}
-                    </p>
-                    <img src = "${message.image}" class = "lower-message__image" width = "250" height = "150">
+                  <div class = "upper-message__date">
+                    ${message.created_at}
                   </div>
+                 </div>
+                 <div class ="lower-message">
+                  <p class="lower-message__content">
+                    ${message.content}
+                  </p>
+                    ${image}
+                 </div>
                 </div>`
-  } else if (message.content){
-    var html = `<div class = "message">
-                  <div class = "upper-message">
-                    <div class = "upper-message__user-name">
-                        ${message.user_name}
-                    </div>
-                    <div class = "upper-message__date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class ="lower-message">
-                    <p class="lower-message__content">
-                        ${message.content}
-                    </p>
-                  </div>
-                </div>`
-  } else if (message.image){
-    var html = `<div class = "message">
-                  <div class = "upper-message">
-                    <div class = "upper-message__user-name">
-                        ${message.user_name}
-                    </div>
-                    <div class = "upper-message__date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class ="lower-message">
-                    <img src = "${message.image}" class = "lower-message__image" width = "250" height = "150">
-                  </div>
-                </div>`
-  }
     return html;
   }
   $('.js-form').on('submit', function(e){
@@ -66,6 +39,7 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
+      $('.form__mask__image').val('')
       $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight},500);
     })
     .fail(function() {
