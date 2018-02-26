@@ -71,5 +71,8 @@ $(function(){
     .fail(function() {
      alert('エラーのためメッセージの送信ができませんでした。');
     })
+    .always(function() {
+      $('.form__submit').prop('disabled', false);
+    });
   })
 });
