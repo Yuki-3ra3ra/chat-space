@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     var image = message.image == null
       ? ``
-      : `<img src='${message.image}' , width = 250px, height:150px >`
+      : `<img src='${message.image}' , width = 250px, height = 150px >`
 
     var html = `<div class = "message">
                  <div class = "upper-message">
