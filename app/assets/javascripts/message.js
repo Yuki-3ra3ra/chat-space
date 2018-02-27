@@ -1,10 +1,9 @@
 $(function(){
   function buildHTML(message){
-    if(message.image){
-      image = `<img src=${message.image} width="250" height="150">`;
-      }else{
-       image = "";
-    }
+    var image = message.image == null
+      ? ``
+      : `<img src='${message.image}' , width = 250px, height:150px >`
+
     var html = `<div class = "message">
                  <div class = "upper-message">
                   <div class = "upper-message__user-name">
@@ -15,15 +14,15 @@ $(function(){
                   </div>
                  </div>
                  <div class ="lower-message">
-                  <p class="lower-message__content">
+                  <div class="lower-message__content">
                     ${message.content}
-                  </p>
+                  <div>
                     ${image}
                  </div>
                 </div>`
     return html;
   }
-  $('.js-form').on('submit', function(e){
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
