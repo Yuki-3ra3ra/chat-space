@@ -15,11 +15,12 @@ $(function() {
     console.log(name);
     $.ajax({
       type: 'GET',
-      url: '/user',
+      url: '/users',
       data: { key: name },
       dataType: 'json'
     })
     .done(function(users) {
+      console.log(users);
        var insertHTML = '';
        users.forEach(function(user){
          insertHTML += buildSearchedUserHTML(user);
