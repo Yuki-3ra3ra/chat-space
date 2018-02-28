@@ -24,7 +24,6 @@ $(function() {
 
   $(".js-user-search-field").on("keyup", function() {
     var name = $(".js-user-search-field").val();
-    console.log(name);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -32,7 +31,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users) {
-      console.log(users);
        var insertHTML = '';
        users.forEach(function(user){
          insertHTML += buildSearchedUserHTML(user);
@@ -47,7 +45,6 @@ $(function() {
   });
 
   $('.js-user-seaerch-result').on('click', '.js-add-btn', function() {
-     console.log(this);
      var id = $(this).data('user-id');
      var name = $(this).data('user-name');
      var html = buildAddUserHTML(id, name);
