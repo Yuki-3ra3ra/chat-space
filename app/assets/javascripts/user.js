@@ -10,6 +10,18 @@ $(function() {
     return html;
   };
 
+    var buildAddUserHTML = function(id, name) {
+    var html = '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-' + id +  '">' +
+      '<input type="hidden" name="group[user_ids][]" value="' + id + '">' +
+      '<p class="chat-group-user__name">' +
+      name +
+      '</p>' +
+      '<a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="' + id + '">削除' +
+      '</a>' +
+      '</div>';
+      return html;
+  };
+
   $(".js-user-search-field").on("keyup", function() {
     var name = $(".js-user-search-field").val();
     console.log(name);
@@ -33,4 +45,18 @@ $(function() {
       alert('ユーザーの検索に失敗しました');
     });
   });
+
+  $('.js-user-seaerch-result').on('click', '.js-add-btn', function() {
+     console.log(this);
+     var id = $(this).data('user-id');
+     var name = $(this).data('user-name');
+     var html = buildAddUserHTML(id, name);
+     $('.js-add-user').append(html);
+     $(this).parent().remove();
+  });
+
+  $('.js-add-user').on('click', '.js-remove-btn', function() {
+     $(this).parent('.js-chat-member').remove()
+  });
+
 });
