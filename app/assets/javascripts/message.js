@@ -55,6 +55,9 @@ $(function(){
   function update(){
     var message_id = $(".message").last().data("id");
     var url = location.href;
+    if (!(url.includes('groups' && "messages"))){
+      return
+    };
     $.ajax({
       url: location.href,
       type: 'GET',
