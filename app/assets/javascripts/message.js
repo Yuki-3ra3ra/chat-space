@@ -65,7 +65,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
       data.forEach(function(datum) {
         var html = buildHTML(datum);
         $(".messages").append(html)
